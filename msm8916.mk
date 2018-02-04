@@ -247,6 +247,10 @@ PRODUCT_PACKAGES += \
     libOmxVidcCommon \
     libstagefrighthw
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-service.8916
+
 # Preopt SystemUI
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
