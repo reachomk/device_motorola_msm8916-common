@@ -303,10 +303,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     textclassifier.bundle1
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
-
 # Trust
 PRODUCT_PACKAGES += \
     vendor.lineage.trust@1.0-service
