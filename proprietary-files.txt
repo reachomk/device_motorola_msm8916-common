@@ -115,10 +115,6 @@ vendor/lib/libOmxAacDec.so|d4d36b943fd18b565af4ed6d81e422b60ac6b5c2
 vendor/lib/libOmxEvrcDec.so|b003a2147230e3040a2b64ba9fa94367961fc7e2
 vendor/lib/libOmxQcelp13Dec.so|8e890cbe50cb2f404648c967d00d7d0d8770bd6d
 
-# Perf
-vendor/bin/perfd
-vendor/lib/libqti-perfd-client.so
-
 # IMS - from athene & ims.apk from daisy
 -priv-app/ims/ims.apk|39ecce179dd9c9e4e7e09ebfc6b8c73887ebc521
 -vendor/app/imssettings/imssettings.apk|d34ce39b079627024af4b3af5d9854aec5d2295e
@@ -170,7 +166,7 @@ vendor/lib/libsmemlog.so|8f0e2c95280922335bfa38117253dd8d6381dfeb
 -framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk|9ed0655b1c929520727ae6c48218d7276b9269cc
 vendor/etc/permissions/qti_libpermissions.xml|92e5814133dbc1f82fce898374d042a42c9ecf9d
-vendor/etc/permissions/qti_permissions.xml|e6ff4572352b1a4f91b6b9d7cbb1cad9924410a0
+vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
 vendor/bin/netmgrd|c4da87b3a81cef3574c87d7b7ae466efeb573e2a
 vendor/bin/qmuxd|89df9a0cd00f7c0e8af1a81eb9b79a22fa128b7d
 vendor/bin/rmt_storage|e586c4429dc20994e2b9203ef7f269a648e0a0b5
@@ -259,3 +255,28 @@ vendor/lib/liboemcrypto.so
 vendor/bin/hw/android.hardware.drm@1.0-service.widevine
 vendor/etc/init/android.hardware.drm@1.0-service.widevine.rc
 vendor/lib/libwvhidl.so
+
+# Perf
+etc/powerhint.xml
+lib/libqti-iopd-client_system.so
+lib/libqti-perfd-client_system.so
+lib/libqti_performance.so
+vendor/bin/hw/vendor.qti.hardware.perf@1.0-service
+vendor/etc/init/hw/init.qcom.rc
+vendor/etc/init/vendor.qti.hardware.perf@1.0-service.rc
+vendor/etc/perf/commonresourceconfigs.xml
+vendor/etc/perf/perf-profile0.conf
+vendor/etc/perf/perf-profile1.conf
+vendor/etc/perf/perfboostsconfig.xml
+vendor/etc/perf/targetconfig.xml
+vendor/etc/perf/targetresourceconfigs.xml
+vendor/lib/hw/vendor.qti.hardware.iop@2.0-impl.so
+vendor/lib/libperfgluelayer.so
+vendor/lib/libqti-iopd-client.so
+vendor/lib/libqti-perfd-client.so
+vendor/lib/libqti-perfd.so
+vendor/lib/libqti-util.so
+vendor/lib/libqti-utils.so
+vendor/lib/vendor.qti.hardware.iop@1.0.so
+vendor/lib/vendor.qti.hardware.iop@2.0.so
+vendor/lib/vendor.qti.hardware.perf@1.0.so

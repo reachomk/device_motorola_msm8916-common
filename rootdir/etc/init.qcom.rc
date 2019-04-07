@@ -317,11 +317,15 @@ on post-fs-data
 
     setprop ro.hw.hwrev ${ro.boot.hwrev}
 
-    #Create PERFD deamon related dirs
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
     mkdir /persist/drm 0770 system system
-    rm /data/system/perfd/default_values
+
+    #Create PERFD deamon related dirs
+    mkdir /data/vendor/perfd 0770 root system
+    chmod 2770 /data/vendor/perfd
+    rm /data/vendor/perfd/default_values
+
+    #Create IOP  deamon related dirs
+    mkdir /data/vendor/iop 0700 root system
 
 service mmi-boot-sh /vendor/bin/init.mmi.boot.sh
     class core
@@ -501,12 +505,6 @@ service per_mgr /system/vendor/bin/pm-service
     user system
     group system
 
-service perfd /system/vendor/bin/perfd
-    class main
-    user root
-    socket perfd seqpacket 0666 root system
-    disabled
-
 service ppd /vendor/bin/mm-pp-daemon
     class hal
     user system
@@ -571,6 +569,4 @@ on property:sys.boot_completed=1
     swapon_all /vendor/etc/fstab.qcom
 
     setprop vendor.post_boot.parsed 1
-
-    start perfd
     restart cameraserver
