@@ -1,5 +1,7 @@
 # Binaries
 /(vendor|system/vendor)/bin/qmi_motext_hook                 u:object_r:rild_exec:s0
+/system/bin/blank_screen_exec				    u:object_r:blank_screen_exec:s0
+/system/bin/blkid_exec				  	    u:object_r:blkid_exec:s0
 
 # Init shell scripts
 /(vendor|system/vendor)/bin/init\.mmi\.boot\.sh             u:object_r:mmi_boot_sh_exec:s0
@@ -9,9 +11,6 @@
 # Lights
 /sys/devices/soc\.0/leds-atc-[0-9]+/leds(/.*)?              u:object_r:sysfs_leds:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service.harpia    u:object_r:hal_light_default_exec:s0
-
-# Power
-/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.0-service\.8916                          u:object_r:hal_power_default_exec:s0
 
 # HAL exec
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service\.widevine      u:object_r:hal_drm_widevine_exec:s0
@@ -24,8 +23,10 @@
 
 # Partitions
 /dev/block/bootdevice/by-name/metadata                      u:object_r:metadata_block_device:s0
-/dev/block/platform/soc\.0/7824900\.sdhci/by-name/modem     u:object_r:modem_efs_partition_device:s0
 
+# Perf
+/sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)? u:object_r:sysfs_devfreq:s0
+/sys/devices/soc\.0/qcom,gpubw\.[0-9]+/devfreq/qcom,gpubw\.[0-9]+(/.*)? u:object_r:sysfs_devfreq:s0
 
 # RIL
 /data/misc/cutback(/.*)?                                    u:object_r:cutback_data_file:s0
@@ -33,6 +34,7 @@
 
 # Sysfs files
 /sys/devices/w1_bus_master1(/.*)?                           u:object_r:sysfs_w1_bus:s0
+/sys/devices/soc0(/.*)?                         	    u:object_r:sysfs_socinfo:s0
 
 # Usb
 /(vendor|system/vendor)/bin/hw/android\.hardware\.usb@1\.0-service\.harpia       u:object_r:hal_usb_default_exec:s0
