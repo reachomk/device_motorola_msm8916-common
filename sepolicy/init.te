@@ -3,3 +3,5 @@ allow init fsg_file:dir mounton;
 allow init pstorefs:dir mounton;
 allow init sysfs_graphics:file { open write setattr w_file_perms };
 allow init sysfs:file { open write };
+allow init proc:file { read };
+allow init vendor_file:file { execute_no_trans };
