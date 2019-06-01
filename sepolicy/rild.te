@@ -8,4 +8,8 @@ allow rild rild_exec:file execute_no_trans;
 
 dontaudit rild vendor_file:file ioctl;
 
-allow rild device:chr_file { read write };
+allow rild device:chr_file { read write open };
+allow rild fsg_file:dir { search read open };
+allow rild proc:file { read open };
+allow rild block_device:dir { search };
+allow rild fsg_file:lnk_file { read open };

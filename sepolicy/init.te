@@ -5,3 +5,6 @@ allow init sysfs_graphics:file { open write setattr w_file_perms };
 allow init sysfs:file { open write };
 allow init proc:file { read };
 allow init vendor_file:file { execute_no_trans };
+allow init hwservicemanager:binder { call transfer };
+allow init system_file:{ dir file } { relabelfrom };
+allow init { hal_power_hwservice hidl_base_hwservice hal_lineage_power_hwservice }:hwservice_manager { add };
