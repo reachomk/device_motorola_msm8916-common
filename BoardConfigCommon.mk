@@ -51,7 +51,6 @@ ifneq ($(wildcard $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8),)
   KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 endif
 
-# TODO: Add compatibility with AEX sepolicy. 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x3F ehci-hcd.park=3 vmalloc=400M androidboot.bootdevice=7824900.sdhci utags.blkdev=/dev/block/bootdevice/by-name/utags utags.backup=/dev/block/bootdevice/by-name/utagsBackup movablecore=160M loop.max_part=7
 #BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
@@ -150,7 +149,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RELEASETOOLS_EXTENSIONS := $(VENDOR_PATH)
 
 # SELinux
--include device/qcom/lineage-sepolicy-legacy/sepolicy.mk
+-include device/qcom/sepolicy-legacy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
         $(VENDOR_PATH)/sepolicy
