@@ -2,6 +2,7 @@
 /(vendor|system/vendor)/bin/qmi_motext_hook                 u:object_r:rild_exec:s0
 /system/bin/blank_screen_exec				    u:object_r:blank_screen_exec:s0
 /system/bin/blkid_exec				  	    u:object_r:blkid_exec:s0
+/(vendor|system/vendor)/bin/init\.device\.config\.sh        u:object_r:device_config_exec:s0
 
 # Init shell scripts
 /(vendor|system/vendor)/bin/init\.mmi\.boot\.sh             u:object_r:mmi_boot_sh_exec:s0

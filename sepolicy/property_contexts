@@ -2,3 +2,4 @@
 ro.manufacturedate          u:object_r:manufacturedate_prop:s0
 ro.hw.revision              u:object_r:hw_rev_prop:s0
 rmtfs.                      u:object_r:rmtfs_prop:s0
+ro.boot.dualsim  	    u:object_r:dualsims_prop:s0
