@@ -46,8 +46,8 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_USES_64_BIT_BINDER := true
 
 # Kernel Toolchain
-ifneq ($(wildcard $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9),)
-  KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.9/bin
+ifneq ($(wildcard $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8),)
+  KERNEL_TOOLCHAIN := $(shell pwd)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
   KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 endif
 
@@ -90,7 +90,7 @@ TARGET_PROVIDES_CAMERA_HAL := true
 TARGET_USES_NON_TREBLE_CAMERA := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
-	/system/vendor/bin/mm-qcamera-daemon=25
+	/vendor/bin/mm-qcamera-daemon=25
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
@@ -165,22 +165,29 @@ endif
 
 # SHIMS
 TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/libsensorndkbridge.so|libshim_ril.so \
-    /system/vendor/lib/libmdmcutback.so|libqsap_shim.so \
-    /system/vendor/lib/libjustshoot.so|libshims_camera.so \
-    /system/vendor/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
-    /system/vendor/lib/libmmcamera_wavelet_lib.so|libshim_atomic.so \
-    /system/vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
-    /system/vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
-    /system/vendor/lib/libjustshoot.so|libjustshoot_shim.so
+    /vendor/lib/libsensorndkbridge.so|libshim_ril.so \
+    /vendor/lib/libmdmcutback.so|libqsap_shim.so \
+    /vendor/lib/libjustshoot.so|libshims_camera.so \
+    /vendor/lib/libmot_sensorlistener.so|libshims_sensorlistener.so \
+    /vendor/lib/libmmcamera_wavelet_lib.so|libshim_atomic.so \
+    /vendor/lib/libqomx_jpegenc.so|libboringssl-compat.so \
+    /vendor/lib/libmmqjpeg_codec.so|libboringssl-compat.so \
+    /vendor/lib/libmmcamera_wavelet_lib.so|libc_util.so \
+    /vendor/lib/libjustshoot.so|libjustshoot_shim.so
 
 # Sp-shim
 TARGET_LD_PRELOAD := \
-    /system/vendor/lib/libboringssl-compat.so
+    //vendor/lib/libboringssl-compat.so
 
 # Telephony
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
+
+# Treble
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_PARTITION_SIZE := 687865856
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Peripheral manager
 TARGET_PER_MGR_ENABLED := true
